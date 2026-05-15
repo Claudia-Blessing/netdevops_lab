@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetDevOps Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Grid background -->
+  <div class="grid-bg"></div>
+
+  <!-- Scan line overlay -->
+  <div class="scanlines"></div>
+
+  <!-- Top nav bar -->
+  <nav class="nav">
+    <span class="nav-logo">NET<span class="accent">DEV</span>OPS</span>
+    <div class="nav-status">
+      <span class="dot"></span>
+      <span class="mono">SYSTÈME OPÉRATIONNEL</span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <main class="hero">
+
+    <div class="badge mono">
+      <span class="dot-sm"></span>
+      v2.4.1 · DÉPLOYÉ AVEC SUCCÈS
+    </div>
+
+    <h1 class="headline">
+      <span class="line1">INFRASTRUCTURE</span>
+      <span class="line2">AS <em>CODE</em></span>
+      <span class="line3">UNLEASHED</span>
+    </h1>
+
+    <p class="tagline">
+      Automatisation réseau · CI/CD · Observabilité<br>
+      <span class="mono dim">// Pipeline-driven. Config-driven. Zero-touch.</span>
+    </p>
+
+    <div class="cta-row">
+      <a href="#" class="btn-primary">Voir le Lab <span class="arrow">→</span></a>
+      <a href="#" class="btn-ghost mono">$ git clone lab</a>
+    </div>
+
+    <!-- Terminal block -->
+    <div class="terminal">
+      <div class="term-bar">
+        <span class="dot-red"></span>
+        <span class="dot-yellow"></span>
+        <span class="dot-green"></span>
+        <span class="term-title mono">deploy.sh</span>
+      </div>
+      <div class="term-body mono" id="termBody">
+        <div class="term-line"><span class="prompt">$</span> ansible-playbook site.yml --diff</div>
+        <div class="term-line out">PLAY [network_devices] ************************************</div>
+        <div class="term-line out"><span class="ok">ok:</span> [router-core-01] → {&quot;changed&quot;: false}</div>
+        <div class="term-line out"><span class="ok">ok:</span> [switch-dist-02] → {&quot;changed&quot;: false}</div>
+        <div class="term-line out"><span class="changed">changed:</span> [fw-edge-01] → BGP policy updated</div>
+        <div class="term-line out"><span class="ok">PLAY RECAP</span> ————————————————————————————</div>
+        <div class="term-line out success">✔ 3 ok · 1 changed · 0 failed · 0 unreachable</div>
+        <div class="term-line blink-line"><span class="prompt">$</span> <span class="cursor">█</span></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Stats strip -->
+  <section class="stats">
+    <div class="stat">
+      <span class="stat-num" data-target="99.97">0</span><span class="stat-unit">%</span>
+      <span class="stat-label mono">Uptime SLA</span>
+    </div>
+    <div class="divider"></div>
+    <div class="stat">
+      <span class="stat-num" data-target="47">0</span><span class="stat-unit"> nœuds</span>
+      <span class="stat-label mono">Gérés via IaC</span>
+    </div>
+    <div class="divider"></div>
+    <div class="stat">
+      <span class="stat-num" data-target="128">0</span><span class="stat-unit">×</span>
+      <span class="stat-label mono">Déploiements/mois</span>
+    </div>
+    <div class="divider"></div>
+    <div class="stat">
+      <span class="stat-num" data-target="0">—</span><span class="stat-unit"></span>
+      <span class="stat-label mono">Intervention manuelle</span>
+    </div>
+  </section>
+
+  <!-- Stack pills -->
+  <section class="stack-section">
+    <p class="section-label mono">// STACK TECHNIQUE</p>
+    <div class="pills">
+      <span class="pill">Ansible</span>
+      <span class="pill">Terraform</span>
+      <span class="pill">Python / Nornir</span>
+      <span class="pill">GitLab CI</span>
+      <span class="pill">Nautobot</span>
+      <span class="pill">Prometheus</span>
+      <span class="pill">Grafana</span>
+      <span class="pill">YANG / NETCONF</span>
+      <span class="pill">gNMI</span>
+      <span class="pill">Containerlab</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer mono">
+    <span>© 2025 NetDevOps Lab</span>
+    <span class="dim">·</span>
+    <span class="dim">Built with passion, deployed with pipelines.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

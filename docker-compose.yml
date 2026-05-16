@@ -61,6 +61,28 @@ services:
     networks:
       - backend_net
 
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus_monitoring
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - backend
+    networks:
+      - backend_net
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana_dashboard
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin123
+    networks:
+      - backend_net
+
 volumes:
   postgres_data:
 

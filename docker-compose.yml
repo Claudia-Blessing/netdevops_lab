@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
 
   nginx:
@@ -31,10 +29,8 @@ services:
       - frontend_net
 
   backend:
-    image: node:20
+    build: ./backend
     container_name: backend_api
-
-    working_dir: /app
 
     volumes:
       - ./backend:/app

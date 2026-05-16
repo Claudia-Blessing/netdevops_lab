@@ -1,0 +1,51 @@
+- name: Deploy multi-services Infrastructure
+
+  hosts: local
+
+  become: false
+
+  tasks:
+
+    - name: Verify Docker is installed
+
+      command: docker --version
+
+      register: docker_version
+
+    - name: Display Docker version
+
+      debug:
+        var: docker_version.stdout
+
+    - name: Start infrastructure with Docker Compose
+
+      command: docker compose up 
+
+      args:
+        chdir: /mnt/c/Users/LENOVO/Documents/DEVOPS/netdevops_lab
+
+    - name: Show running containers
+
+      command: docker ps
+
+      register: docker_ps
+
+    - name: Display containers
+
+      debug:
+        var: docker_ps.stdout_lines
+        msg: "Infrastructure deployed successfully"
+
+    - name: Check Net.io Landing Page
+
+      uri:
+        url: http://localhost
+        method: GET
+        status_code: 200
+
+      register: http_result
+
+    - name: Display HTTP result
+
+      debug:
+        msg: "Net.io landing page is accessible"
